@@ -16,16 +16,21 @@
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
-		<license/>
+		<license>
+			<name>Unlicense</name>
+			<url>http://unlicense.org/</url>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<name>Your Name</name>
+		</developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:git://github.com/seuusuario/seurepo.git</connection>
+		<developerConnection>scm:git:ssh://github.com:seuusuario/seurepo.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/seuusuario/seurepo</url>
 	</scm>
 	<properties>
 		<java.version>21</java.version>
@@ -84,7 +89,11 @@
 			<version>0.11.5</version>
 			<scope>runtime</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>4.1.1</version>
+		</dependency>
 
 	</dependencies>
 
