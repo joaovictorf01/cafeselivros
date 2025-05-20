@@ -1,19 +1,59 @@
-### Create a new user
-POST http://localhost:8080/api/users
+@baseUrl = http://localhost:8080
+
+@name = João Victor
+
+@email = joao.victor@example.com
+
+@username = joaovictor
+
+@password = secret123
+
+### Registro do usuário
+
+POST {{baseUrl}}/api/auth/register 
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john.doe@example.com",
-  "username": "johndoe",
-  "password": "secret123"
+    "name": "{{name}}",
+    "email": "{{email}}",
+    "username": "{{username}}",
+    "password": "{{password}}"
 }
 
-### Get all users
-GET http://localhost:8080/api/users
+### Login com username
 
-### Get user by ID
-GET http://localhost:8080/api/users/{{userId}}
+POST {{baseUrl}}/api/auth/login 
+Content-Type: application/json
 
-### Delete user by ID
-DELETE http://localhost:8080/api/users/{{userId}}
+{
+    "identifier": "{{username}}",
+    "password": "{{password}}"
+}
+
+### OU login com email
+
+POST {{baseUrl}}/api/auth/login 
+Content-Type: application/json
+
+{
+  "identifier": "{{email}}",
+  "password": "{{password}}"
+}
+
+# ⚠️ Após o login, copie o token da resposta e cole abaixo:
+@token = cole_o_token_aqui
+@userId = cole_o_id_do_usuario_se_quiser
+
+### Buscar todos os usuários
+
+GET {{baseUrl}}/api/users 
+Authorization: Bearer {{token}}
+
+### Buscar usuário por ID
+
+GET {{baseUrl}}/api/users/{{userId}} 
+Authorization: Bearer {{token}}
+
+### Deletar usuário por ID
+
+DELETE {{baseUrl}}/
